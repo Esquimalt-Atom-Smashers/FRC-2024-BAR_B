@@ -117,7 +117,7 @@ public class RobotContainer {
             //        driverLogitechController.getRightBumper().whileTrue(intakeSubsystem.lowerIntakeCommandPID());
             
             
-        driverLogitechController.getLeftBumper().onTrue(swerveDriveSubsystem.autoDriveForwardCommand());
+       // driverLogitechController.getLeftBumper().onTrue(swerveDriveSubsystem.autoDriveForwardCommand());
         // driverLogitechController.getDPadRight().onTrue(shooterSubsystem.setAppliedVoltage(0.05));
         // driverLogitechController.getDPadLeft().onTrue(shooterSubsystem.setAppliedVoltage(-0.05));
                 

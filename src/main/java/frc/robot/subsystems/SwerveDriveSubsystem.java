@@ -20,10 +20,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.DoubleSupplier;
 
-import com.pathplanner.lib.auto.AutoBuilder;
-import com.pathplanner.lib.path.GoalEndState;
-import com.pathplanner.lib.path.PathConstraints;
-import com.pathplanner.lib.path.PathPlannerPath;
+// import com.pathplanner.lib.auto.AutoBuilder;
+// import com.pathplanner.lib.path.GoalEndState;
+// import com.pathplanner.lib.path.PathConstraints;
+// import com.pathplanner.lib.path.PathPlannerPath;
 
 import frc.lib.swerve.SwerveModuleConstants;
 
@@ -162,38 +162,38 @@ public class SwerveDriveSubsystem extends SubsystemBase {
 
     // This command is only used to test autonomous
     // The command drives forwards 2 meters in the x direction
-    public Command autoDriveForwardCommand() {
-        return runOnce(() -> {
-            // Get our current pose
-            Pose2d currentPose = getPose();
+    // public Command autoDriveForwardCommand() {
+    //     return runOnce(() -> {
+    //         // Get our current pose
+    //         Pose2d currentPose = getPose();
 
-            // Create the start pose, and the end pose which is 2 meters in the positive x-direction
-            Pose2d startPose = new Pose2d(currentPose.getTranslation(), new Rotation2d());
-            Pose2d endPose = new Pose2d(currentPose.getTranslation()/*.plus(new Translation2d(2.0, 0.0))*/, new Rotation2d(Math.toRadians(180)));
+    //         // Create the start pose, and the end pose which is 2 meters in the positive x-direction
+    //         Pose2d startPose = new Pose2d(currentPose.getTranslation(), new Rotation2d());
+    //         Pose2d endPose = new Pose2d(currentPose.getTranslation()/*.plus(new Translation2d(2.0, 0.0))*/, new Rotation2d(Math.toRadians(180)));
 
-            // Create a list of points 
-            List<Translation2d> bezierPoints = PathPlannerPath.bezierFromPoses(startPose, endPose);
+    //         // Create a list of points 
+    //         List<Translation2d> bezierPoints = PathPlannerPath.bezierFromPoses(startPose, endPose);
             
-            // Create the autonomous path
-            PathPlannerPath path = new PathPlannerPath(
-                bezierPoints, 
-                new PathConstraints(
-                    4.0, 
-                    4.0,
-                    Units.degreesToRadians(360), 
-                    Units.degreesToRadians(540)
-                    ), 
-                // Our desired end state is not moving and facing the same
-                new GoalEndState(0.0, new Rotation2d(Math.toRadians(180)))
-            );
+    //         // Create the autonomous path
+    //         PathPlannerPath path = new PathPlannerPath(
+    //             bezierPoints, 
+    //             new PathConstraints(
+    //                 4.0, 
+    //                 4.0,
+    //                 Units.degreesToRadians(360), 
+    //                 Units.degreesToRadians(540)
+    //                 ), 
+    //             // Our desired end state is not moving and facing the same
+    //             new GoalEndState(0.0, new Rotation2d(Math.toRadians(180)))
+    //         );
 
-            // Don't flip the path
-            path.preventFlipping = true;
+    //         // Don't flip the path
+    //         path.preventFlipping = true;
  
-            // Schedule the command to follow the path
-            AutoBuilder.followPath(path).schedule();
-        });
-    }
+    //         // Schedule the command to follow the path
+    //         AutoBuilder.followPath(path).schedule();
+    //     });
+    // }
 
     /** Sets the custom max speed(m/s) of the drivetrain. */
     public void setCustomMaxSpeedSupplier(DoubleSupplier maxSpeedSupplier) {
